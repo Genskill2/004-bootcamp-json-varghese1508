@@ -13,8 +13,8 @@ def compute_phi(data: dict, event: str) -> float:
     np1,np0,n1p,n0p = 0,0,0,0
 
     for i in range(len(data)):
-        state = data[i]['squirrel']
-        events = data[i]['events']
+        state = dict(data[i])['squirrel']
+        events = dict(data[i])['events']
 
         if state==True:
             np1+=1
