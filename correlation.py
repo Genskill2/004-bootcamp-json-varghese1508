@@ -56,7 +56,19 @@ def compute_correlations(fname: str) -> dict:
 def diagnose(fname: str) -> dict:
     eventPhi = compute_correlations(fname)
     result = []
-    result.append(max(eventPhi))
-    result.append(min(eventPhi))
+
+    Max,Min = -2,2
+    maxEvent,minEvent = "",""
+
+    for event in eventPhi:
+        if(eventPhi[event]<Min):
+            Min = eventPhi[event]
+            minEvent = event
+        elif(eventPhi[event]>Max):
+            Max = eventPhi[event]
+            maxEvent = event
+
+    result.append(maxEvent)
+    result.append(minEvent)
 
     return result
