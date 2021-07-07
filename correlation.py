@@ -7,7 +7,8 @@ def load_journal(fname: str) -> dict:
     data = json.load(f)     # loads json file and returns dict of values
     return data
 
-def compute_phi(data: dict, event: str) -> float:
+def compute_phi(fname: str, event: str) -> float:
+    data = load_journal(fname)
     corr = 0.0
     n00,n01,n10,n11 = 0,0,0,0
     np1,np0,n1p,n0p = 0,0,0,0
@@ -72,3 +73,5 @@ def diagnose(fname: str) -> dict:
     result.append(minEvent)
 
     return result
+
+#print(compute_phi(load_journal('journal.json'),'peanuts'))
