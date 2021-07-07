@@ -73,5 +73,3 @@ def diagnose(fname: str) -> dict:
     result.append(minEvent)
 
     return result
-
-#print(compute_phi(load_journal('journal.json'),'peanuts'))
