@@ -41,7 +41,7 @@ def compute_phi(data: dict, event: str) -> float:
 
     return corr
 
-def compute_correlations(fname: str):
+def compute_correlations(fname: str) -> dict:
     data = load_journal(fname)
     eventPhi = {}
 
@@ -53,5 +53,10 @@ def compute_correlations(fname: str):
 
     return eventPhi
 
-def diagnose():
-    pass
+def diagnose(fname: str) -> dict:
+    eventPhi = compute_correlations(fname)
+    result = []
+    result.append(max(eventPhi))
+    result.append(min(eventPhi))
+
+    return result
