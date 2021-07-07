@@ -50,7 +50,7 @@ def compute_correlations(fname: str) -> dict:
         events = data[i]['events']
         for event in events:
             if event not in eventPhi:
-                eventPhi[event] = compute_phi(data,event)
+                eventPhi[event] = compute_phi(fname,event)
 
     return eventPhi
 
