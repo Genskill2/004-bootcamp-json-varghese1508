@@ -8,7 +8,6 @@ def load_journal(fname: str) -> dict:
     return data
 
 def compute_phi(data: dict, event: str) -> float:
-
     corr = 0.0
     n00,n01,n10,n11 = 0,0,0,0
     np1,np0,n1p,n0p = 0,0,0,0
@@ -42,8 +41,17 @@ def compute_phi(data: dict, event: str) -> float:
 
     return corr
 
-def compute_correlations():
-    pass
+def compute_correlations(fname: str):
+    data = load_journal(fname)
+    eventPhi = {}
+
+    for i in range(len(data)):
+        events = data[i]['events']
+        for event in events:
+            if event not in eventPhi:
+                eventPhi[event] = compute_phi(data,event)
+
+    return eventPhi
 
 def diagnose():
     pass
